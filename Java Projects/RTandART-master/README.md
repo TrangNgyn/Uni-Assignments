@@ -1,10 +1,10 @@
 # VisualART User Manual
 A Java program for testing software which visualises the Random Testing and Adaptive Random Testing algorithms as well as allows software developers to test their programs using the two algorithms.
 ### Created in collaboration with
-Samuel Black
-Trang Nguyen
-Luke Masliah
-Michaela Judge
+Samuel Black,
+Trang Nguyen,
+Luke Masliah,
+Michaela Judge, and 
 Minh Huy Tran
 
 # Purpose of VisualART
@@ -79,13 +79,13 @@ Next, use the second drop-down menu to select which constructor you want to test
  
 Once these fields have been selected, you are ready to test your program.
  
-## Testing your program
+### Testing your program
 To begin Testing, press the Start Button once the file fields have been filled in. From here, VisualART will prompt you to enter the upper and lower limits of data to be tested in a series of popups.
 
 If the argument that needs to be entered an upper and lower limit for is a String or Char type, you will need to enter the size of the string, as well as the range of ASCII values valid to test.
 Once this occurs, the program will begin implementing test cases. Any errors discovered will appear in the Error Log. The given testing technique will stop when an error is found. i.e. If an error is found from ART process, the process immediately stops executing, but RT process continues until it also finds an error.
  
-## Reading the test’s output
+### Reading the test’s output
 Outputs for the given tests will appear in the Results Panel. Each Results Panel (RT and ART) will keep a running total of the number of test cases performed, and the number of errors detected.
  
 The Error Log provides details on any errors encountered within a given test case. If an error occurs, The Error Log First prints the combination of values that produced the error in blue, underneath a new heading of “the test case revealed the error”.
