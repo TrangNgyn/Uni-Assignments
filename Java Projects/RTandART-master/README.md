@@ -12,10 +12,8 @@ VisualART is a black-box testing tool for use by developers in object-oriented p
 Its secondary purpose is as a teaching resource to show the value of testing techniques in developing code, or more aptly, the value of appropriate testing techniques to reduce time spent on a task.
 
 # Getting started: Installation Instructions and System Requirements
-Currently, VisualART runs only on Windows machines running Windows 10. In future releases, the software will be expanded to be able to run on OSx.
-Machines must have Java 11 installed.
-
-To install VisualART, simply download the files and place them in the location of your choice. No further installation is required
+The .jar files to be tested must be compiled with Java 14 or older.
+To install VisualART, simply download the executable files. No further installation is required
 
 ## Testing Simulations
 VisualART is by default launched in simulator mode, a section that allows visualisations of two popular software testing techniques, Random Testing and Adaptive Random Testing.
