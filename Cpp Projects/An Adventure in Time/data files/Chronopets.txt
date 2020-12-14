@@ -1,0 +1,3 @@
+Guinea Pig, 1, 0.01
+Kitty, 3, 0.02
+Doggo, 15, 0.03 

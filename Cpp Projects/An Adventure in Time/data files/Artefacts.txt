@@ -1,0 +1,7 @@
+red,umbrella,1600
+green,wallet,1556
+silver,spoon,1588
+gold,crown,1400
+blue,blanket,1498
+black,fossil,-5000
+weird,stone carving,-4989
