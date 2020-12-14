@@ -1,5 +1,7 @@
 # VisualART User Manual
-A Java program for testing software which visualises the Random Testing and Adaptive Random Testing algorithms as well as allows software developers to test their programs using the two algorithms.
+A Java program for testing software which visualises the Random Testing and Adaptive Random Testing algorithms,
+as well as allows software developers to test their programs using the two algorithms.
+This is also a Maven project which uses the specified libraries in pom.xml
 ### Created in collaboration with
 Samuel Black,
 Trang Nguyen,
