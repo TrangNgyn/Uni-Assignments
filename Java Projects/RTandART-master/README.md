@@ -22,13 +22,15 @@ VisualART is by default launched in simulator mode, a section that allows visual
  
 ## Getting to Know Your Screen
 ### The Navigation Panel
+![Alt text]("/Snapshots/Navigation Panel.png"?raw=true "The Navigation Panel")
 The left-most panel of the screen, The Navigation Panel, shows the tools in which a user can toggle the simulation performed by the program. The checkbox labelled non-numerical input (A) is the box in which to toggle to Testing Mode.
 
 The values within Test Parameters are the options a user can change to alter the simulation, Error Size (B), Test Speed (C), and Run Times (D).
 For more information on the specifics of these values, see Running a Simulation.
 The Start Button (E) begins a simulation when ready.
- 
+
 ### The Simulation Panel
+ ![Alt text]("/Snapshots/Simulation Panel.png"?raw=true "The Simulation Panel")
  
 The Simulation Panel is where the simulation of RT and ART testing is visualised.
 
@@ -53,7 +55,9 @@ When the non-numerical input box is checked, the program switches to Manual Test
 ### Getting to Know Your Screen
 - The Navigation Panel: The left-most panel of the screen, The Navigation Panel, shows the tools in which a user can toggle between simulation and manual mode (A) and the button to begin the testing (B).
 - The Testing Panel: The testing panel holds the options for selecting files to test, as well as sections for the results of the tests.
-  
+
+![Alt text]("/Snapshots/Testing Panel.png"?raw=true "The Testing Panel")
+
 The first button within the section (A) brings up a directory window to select the location of the folder containing the file to be tested.
 The first drop-down (B) takes the information from the chosen folder and provides a selection of classes to choose from to test.
 The second drop-down (C) takes the information from the chosen class and provides a selection of constructors to choose from to test.
