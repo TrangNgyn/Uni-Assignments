@@ -56,7 +56,7 @@ When the non-numerical input box is checked, the program switches to Manual Test
 - The Navigation Panel: The left-most panel of the screen, The Navigation Panel, shows the tools in which a user can toggle between simulation and manual mode (A) and the button to begin the testing (B).
 - The Testing Panel: The testing panel holds the options for selecting files to test, as well as sections for the results of the tests.
 
-![Alt text](https://github.com/TrangNgyn/University-Assignments/blob/master/Java%20Projects/RTandART-master/Snapshots/Testing%20Panel.png?raw=true "The Testing Panel")
+![Alt text](https://github.com/TrangNgyn/University-Assignments/blob/master/Java%20Projects/RTandART-master/Snapshots/TestingPanel.png?raw=true "The Testing Panel")
 
 The first button within the section (A) brings up a directory window to select the location of the folder containing the file to be tested.
 The first drop-down (B) takes the information from the chosen folder and provides a selection of classes to choose from to test.
