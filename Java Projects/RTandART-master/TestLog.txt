@@ -1,0 +1,31 @@
+Testing log generated at: 2020/10/31 15:52:21
+Constructor tested: public Bank(java.lang.String,double)
+
+Random Test Cases
+----------------------------------------------------------------------
+The testing revealed the following error cases:
+
+java.lang.NumberFormatException:
+hK!AG          1.8212086245935218E307      
+h=5(N          1.4030205190277457E308      
+#K7QQ          1.0836684089559598E308      
+B//          3.4362310187424804E306      
+
+java.lang.ArrayIndexOutOfBoundsException:
+"kyA          9.642525634118008E307       
+"Q@<_          1.609996483068583E308       
+Adaptive Random Test Cases
+----------------------------------------------------------------------
+The testing revealed the following error cases:
+
+java.lang.NumberFormatException:
+k(!#          1.4411160918593115E308      
+'/X]          1.6065925348258145E308      
+
+java.lang.ArrayIndexOutOfBoundsException:
+9"1          9.943493013851778E305       
+l5"          1.388394292828939E308       
+\?"ZX          1.708401606251732E308       
+i"fHd.          2.735321445099117E307       
+*|"m1          1.2304789133445486E308      
+:Ky"P          1.3040779354491478E308      

@@ -1,0 +1,40 @@
+Testing log generated at: 2020/10/31 16:23:39
+Constructor tested: public Bank(java.lang.String,double)
+
+
+Random Test Cases
+----------------------------------------------------------------------
+The testing revealed the following error cases:
+
+java.lang.NumberFormatException:
+#,1           1.4096813069588246E308      
+lWy;           1.0633829182783603E308      
+qU(           6.233211052820068E307       
+|(e           1.590086702163397E308       
+
+java.lang.ArrayIndexOutOfBoundsException:
+"1F}           5.668260738849414E306       
+5"W{           1.7569860576424862E308      
+:]"}           4.374232483435742E307       
+da"h#           1.0877455518651728E308      
+n_"zD           1.9828451893632548E307      
+6"G           7.147413315253466E307       
+joM"n           1.7627528832108354E308      
+#$#"E           5.721919234511384E307       
+
+
+Adaptive Random Test Cases
+----------------------------------------------------------------------
+The testing revealed the following error cases:
+
+java.lang.ArrayIndexOutOfBoundsException:
+#9"           5.176377407724405E307       
+/"=/x           1.0954526171663506E308      
+Ax`"           4.214380120030467E307       
+rd6"           9.345479474902602E307       
+">1J&           6.927679285997149E306       
+iS"w~           3.2327996978894286E306      
+"XS           1.0070243735119119E307      
+
+java.lang.IllegalArgumentException:
+;6           9.883494090944135E307       
