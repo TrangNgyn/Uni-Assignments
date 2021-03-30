@@ -64,13 +64,12 @@ The second drop-down (C) takes the information from the chosen class and provide
 Below these options lies the results panels, with the top panel (D) being for Random Testing, and the Bottom (E) for ART. Within each Results Panel, the number of Test Cases and the number of Errors detected (F) is displayed, and the Error log (G) provides details on any errors detected.
 
 ## Running a Test
-### Steps Before Using Testing Functionality
-When conducting a test, you must first create a java class named Test.java, that includes the mainline of your program.
-This step exists to make it explicit to the software what you are planning to test.
+### Prerequisite
+When conducting a test, you must first create an executable file for your program (.jar file).
 
-You must also override the toString() method in each of the classes that will be used for testing to return each variable in order from top to bottom separated by a space. This is done to pass the object variables as arguments to the Test main. (see below for example)
+You must also override the toString() method in each of the classes that will be used for testing to return each variable in order from top to bottom separated by a space. This is done so that when the error is detected, a message will apppear containing the values of the objects that are producing the error in a human-readable format.
 
-Choosing your class under test (incl. Choosing its constructor)
+### Choosing your class under test (incl. Choosing its constructor)
 From the Manual Testing screen, select the first button in the Testing Panel to bring up a file selector. Here, navigate to and select the desired subdirectory.
 
 From here, the program will read all of the classes associated with the program, which will appear in the first drop-down menu. Select the class you want to test.
@@ -80,7 +79,7 @@ Next, use the second drop-down menu to select which constructor you want to test
 Once these fields have been selected, you are ready to test your program.
  
 ### Testing your program
-To begin Testing, press the Start Button once the file fields have been filled in. From here, VisualART will prompt you to enter the upper and lower limits of data to be tested in a series of popups.
+To begin Testing, press the Start Button once the file fields have been filled in. From here, VisualART will prompt you to enter the upper and lower limits of data to be tested in a series of pop-ups.
 
 If the argument that needs to be entered an upper and lower limit for is a String or Char type, you will need to enter the size of the string, as well as the range of ASCII values valid to test.
 Once this occurs, the program will begin implementing test cases. Any errors discovered will appear in the Error Log. The given testing technique will stop when an error is found. i.e. If an error is found from ART process, the process immediately stops executing, but RT process continues until it also finds an error.
@@ -91,4 +90,3 @@ Outputs for the given tests will appear in the Results Panel. Each Results Panel
 The Error Log provides details on any errors encountered within a given test case. If an error occurs, The Error Log First prints the combination of values that produced the error in blue, underneath a new heading of “the test case revealed the error”.
 
 The Error Log then provides details on what error occurs from these values.
-For example, in the below ART Results Panel, we can see that at Test Case number 120, an error occurred with the invalid date being entered of the 30/02/1806. This causes a Parse Exception because this is not a possible date, a result that the programmer may want to see, however, they should make sure to defensively program to prevent the program from crashing if this date was entered.
