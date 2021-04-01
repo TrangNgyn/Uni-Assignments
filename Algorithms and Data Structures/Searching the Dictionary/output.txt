@@ -1,0 +1,28 @@
+$ java ass1
+Number of words in dictionary: 370103
+aa : aa
+aaa : aaa
+aas : saa
+ab : ba
+aba : aba
+The longest palindrome found: kinnikinnik
+Number of valid words in sample.txt: 612
+Number of unique words in sample.txt: 283
+Number of unique words found in dictionary: 280
+
+The first 10 anagram words and their anagrams:
+admire: armied damier dimera merida
+after: afret frate trefa
+again: angia
+along: anglo gonal lango logan longa nogal
+and: dan nad
+another: athenor rheotan
+answer: resawn
+any: nay yan
+are: aer ear era rea
+as: sa
+The word with the most anagrams: tears
+The longest word with anagram(s): streaming
+Total number of words with anagram(s): 185
+Total number of anagrams found: 394
+Total run time (secs): 29.67
