@@ -1,0 +1,41 @@
+SQL> @solution4
+SQL> CREATE OR REPLACE TRIGGER APPLYDATE
+  2  	     BEFORE INSERT ON APPLIES
+  3  	     FOR EACH ROW
+  4  DECLARE
+  5  	     time_since_last_application NUMBER;
+  6  BEGIN
+  7  	     SELECT (:NEW.appdate - latest_date)
+  8  	     INTO time_since_last_application
+  9  	     FROM (SELECT MAX(appdate) as latest_date
+ 10  		     FROM APPLIES
+ 11  		     WHERE pnumber = :NEW.pnumber AND anumber = :NEW.anumber);
+ 12  
+ 13  	     IF time_since_last_application <=30 THEN
+ 14  		     RAISE_APPLICATION_ERROR(-20001, 'An applicant cannot apply for a position during the last 30 days from his/her previous application for the same position');
+ 15  	     END IF;
+ 16  END APPLYDATE;
+ 17  /
+
+Trigger created.
+
+SQL> 
+SQL> --TESTING
+SQL> --TESTING FOR INVALID INSERT
+SQL> INSERT INTO APPLIES VALUES (000001, 00000001, TO_DATE('15-DEC-1999', 'DD-MON-YYYY'));
+INSERT INTO APPLIES VALUES (000001, 00000001, TO_DATE('15-DEC-1999', 'DD-MON-YYYY'))
+            *
+ERROR at line 1:
+ORA-20001: An applicant cannot apply for a position during the last 30 days from his/her previous 
+application for the same position 
+ORA-06512: at "TTTN941.APPLYDATE", line 11 
+ORA-04088: error during execution of trigger 'TTTN941.APPLYDATE' 
+
+
+SQL> 
+SQL> --TESTING FOR VALID INSERT
+SQL> INSERT INTO APPLIES VALUES (000001, 00000001, TO_DATE('15-DEC-2000', 'DD-MON-YYYY'));
+
+1 row created.
+
+SQL> spool off

@@ -1,0 +1,76 @@
+SQL> @solution2
+SQL> CREATE OR REPLACE FUNCTION APPLICANTSKILLS (appNo APPLICANT.anumber%TYPE)
+  2  RETURN VARCHAR IS
+  3  applicant_skills VARCHAR(300);
+  4  	     CURSOR A IS
+  5  		     SELECT anumber, fname, lname
+  6  		     FROM APPLICANT
+  7  		     WHERE anumber = appNo;
+  8  	     CURSOR S IS
+  9  		     SELECT anumber, sname, slevel
+ 10  		     FROM SPOSSESSED
+ 11  		     WHERE anumber = appNo;
+ 12  
+ 13  	     applicant A%ROWTYPE;
+ 14  	     skill S%ROWTYPE;
+ 15  BEGIN
+ 16  	     applicant_skills := '';
+ 17  	     OPEN A;
+ 18  
+ 19  	     LOOP
+ 20  
+ 21  		     FETCH A INTO applicant;
+ 22  		     IF A%NOTFOUND
+ 23  			     THEN EXIT;
+ 24  		     END IF;
+ 25  		     applicant_skills := applicant.anumber || ' ' || applicant.fname || ' ' || applicant.lname || ': ';
+ 26  
+ 27  		     OPEN S;
+ 28  		     LOOP
+ 29  			     FETCH S INTO skill;
+ 30  			     IF S%NOTFOUND
+ 31  				     THEN EXIT;
+ 32  			     END IF;
+ 33  			     IF applicant.anumber = skill.anumber THEN
+ 34  				     applicant_skills := applicant_skills ||' '||skill.sname || ' ' || skill.slevel;
+ 35  			     END IF;
+ 36  
+ 37  		     END LOOP;
+ 38  		     CLOSE S;
+ 39  	     END LOOP;
+ 40  	     CLOSE A;
+ 41  	     RETURN applicant_skills;
+ 42  END APPLICANTSKILLS;
+ 43  /
+
+Function created.
+
+SQL> --Calling the function
+SQL> SELECT APPLICANTSKILLS (anumber) FROM APPLICANT;
+
+APPLICANTSKILLS(ANUMBER)                                                                            
+----------------------------------------------------------------------------------------------------
+1 Harry Potter:  Java programming 9 C programming 4 cooking 9                                       
+2 Johnny Walker:  Java programming 9 driving 9                                                      
+3 Mary Poppins:  C++ programming 10 Java programming 9 painting 5                                   
+4 Michael Collins:                                                                                  
+5 Margaret Finch:  SQL programming 6                                                                
+6 Claudia Kowalewski:  SQL programming 8                                                            
+7 James Bond:  SQL programming 9 cooking 10                                                         
+8 Stephen Staunton:  SQL programming 3 cooking 9                                                    
+9 Joseph Staunton:                                                                                  
+10 John Spiderman:  database design 10 cooking 1 painting 9 SQL programming 10                      
+11 George TheFirst:  network administration 10 C programming 5                                      
+12 Homer Simpson:  cooking 1 Java programming 9 driving 3                                           
+13 Neil Superman:  network administration 7 database administration 6                               
+14 Ivan TheTerrible:  painting 5                                                                    
+15 Penelope Princess:  database administration 4                                                    
+16 Zhi Chao Zhong:  SQL programming 4                                                               
+17 Richard TheLionheart:  database administration 7 cooking 9                                       
+18 Sherlock Holmes:  network administration 5 bricklaying 6 database design 9 database administratio
+19 Robin Hood:  database administration 8                                                           
+20 Janusz Getta:  SQL programming 10                                                                
+
+20 rows selected.
+
+SQL> spool off

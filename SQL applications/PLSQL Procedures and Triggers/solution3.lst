@@ -1,0 +1,58 @@
+SQL> @solution3
+SQL> CREATE OR REPLACE TRIGGER SKILLSNEEDED
+  2  	     AFTER INSERT OR UPDATE OF pnumber ON SNEEDED
+  3  BEGIN
+  4  	     FOR skill IN (SELECT COUNT(sname) AS number_of_skills
+  5  		     FROM SNEEDED
+  6  		     GROUP BY pnumber)
+  7  	     LOOP
+  8  		     IF skill.number_of_skills > 4 THEN
+  9  		     RAISE_APPLICATION_ERROR(-20002, 'A position cannot need more than 4 skills');
+ 10  		     END IF;
+ 11  	     END LOOP;
+ 12  
+ 13  END SKILLSNEEDED;
+ 14  /
+
+Trigger created.
+
+SQL> 
+SQL> --TESTING
+SQL> --TESTING FOR INVALID INSERT
+SQL> INSERT INTO SNEEDED VALUES (00000001, 'driving', 10);
+INSERT INTO SNEEDED VALUES (00000001, 'driving', 10)
+            *
+ERROR at line 1:
+ORA-20002: A position cannot need more than 4 skills 
+ORA-06512: at "TTTN941.SKILLSNEEDED", line 7 
+ORA-04088: error during execution of trigger 'TTTN941.SKILLSNEEDED' 
+
+
+SQL> 
+SQL> --TESTING FOR VALID INSERT
+SQL> INSERT INTO SNEEDED VALUES (00000007, 'driving', 10);
+
+1 row created.
+
+SQL> 
+SQL> --TESTING FOR INVALID UPDATE
+SQL> UPDATE SNEEDED
+  2  SET pnumber = 00000001
+  3  WHERE pnumber = 00000002 AND sname = 'driving';
+UPDATE SNEEDED
+       *
+ERROR at line 1:
+ORA-20002: A position cannot need more than 4 skills 
+ORA-06512: at "TTTN941.SKILLSNEEDED", line 7 
+ORA-04088: error during execution of trigger 'TTTN941.SKILLSNEEDED' 
+
+
+SQL> 
+SQL> --TESTING FOR VALID UPDATE
+SQL> UPDATE SNEEDED
+  2  SET pnumber = 00000006
+  3  WHERE pnumber = 00000001 AND sname = 'C programming';
+
+1 row updated.
+
+SQL> spool off

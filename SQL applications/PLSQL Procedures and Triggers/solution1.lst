@@ -1,0 +1,89 @@
+SQL> @solution1
+SQL> CREATE OR REPLACE PROCEDURE APPLICATIONS IS
+  2  	     CURSOR A IS
+  3  		     SELECT anumber, fname, lname
+  4  		     FROM APPLICANT
+  5  		     ORDER BY lname DESC;
+  6  	     CURSOR P IS
+  7  		     SELECT pnumber, title, anumber
+  8  		     FROM APPLIES JOIN POSITION USING (pnumber)
+  9  		     ORDER BY pnumber ASC;
+ 10  	     A_row A%ROWTYPE;
+ 11  	     P_ROW P%ROWTYPE;
+ 12  BEGIN
+ 13  	     OPEN A;
+ 14  
+ 15  	     LOOP
+ 16  
+ 17  		     FETCH A INTO A_row;
+ 18  		     IF A%NOTFOUND
+ 19  			     THEN EXIT;
+ 20  		     END IF;
+ 21  		     DBMS_OUTPUT.PUT_LINE (A_row.anumber || ' ' || A_row.fname || ' ' || A_row.lname || ': ');
+ 22  
+ 23  		     OPEN P;
+ 24  		     LOOP
+ 25  			     FETCH P INTO P_row;
+ 26  			     IF P%NOTFOUND
+ 27  				     THEN EXIT;
+ 28  			     END IF;
+ 29  			     IF A_row.anumber = P_row.anumber THEN
+ 30  				     DBMS_OUTPUT.PUT_LINE (CHR(9) || P_row.pnumber || ' ' || P_row.title);
+ 31  
+ 32  			     END IF;
+ 33  		     END LOOP;
+ 34  		     CLOSE P;
+ 35  	     END LOOP;
+ 36  	     CLOSE A;
+ 37  
+ 38  	     COMMIT;
+ 39  END;
+ 40  /
+
+Procedure created.
+
+SQL> --Executing the procedure
+SQL> EXEC APPLICATIONS;
+16 Zhi Chao Zhong:                                                                                  
+2 Johnny Walker:                                                                                    
+	1 lecturer                                                                                         
+	6 professor                                                                                        
+14 Ivan TheTerrible:                                                                                
+17 Richard TheLionheart:                                                                            
+11 George TheFirst:                                                                                 
+13 Neil Superman:                                                                                   
+9 Joseph Staunton:                                                                                  
+	4 associate professor                                                                              
+8 Stephen Staunton:                                                                                 
+	4 associate professor                                                                              
+10 John Spiderman:                                                                                  
+	5 professor                                                                                        
+12 Homer Simpson:                                                                                   
+15 Penelope Princess:                                                                               
+1 Harry Potter:                                                                                     
+	1 lecturer                                                                                         
+	6 professor                                                                                        
+3 Mary Poppins:                                                                                     
+	2 lecturer                                                                                         
+	6 professor                                                                                        
+6 Claudia Kowalewski:                                                                               
+	3 senior lecturer                                                                                  
+	7 professor                                                                                        
+19 Robin Hood:                                                                                      
+18 Sherlock Holmes:                                                                                 
+20 Janusz Getta:                                                                                    
+5 Margaret Finch:                                                                                   
+	2 lecturer                                                                                         
+	3 senior lecturer                                                                                  
+	7 professor                                                                                        
+4 Michael Collins:                                                                                  
+	2 lecturer                                                                                         
+	7 professor                                                                                        
+7 James Bond:                                                                                       
+	3 senior lecturer                                                                                  
+	4 associate professor                                                                              
+	7 professor                                                                                        
+
+PL/SQL procedure successfully completed.
+
+SQL> spool off
